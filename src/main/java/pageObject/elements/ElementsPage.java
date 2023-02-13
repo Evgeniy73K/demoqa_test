@@ -16,6 +16,10 @@ public class ElementsPage extends BasePage {
     private WebElement checkBoxLink;
     @FindBy(xpath = "//span[text()=\"Radio Button\"]")
     private WebElement radioButtonLink;
+    @FindBy(xpath = "//span[text()=\"Web Tables\"]")
+    private WebElement webTablesLink;
+    @FindBy(xpath = "//span[text()=\"Buttons\"]")
+    private WebElement buttonsPageLink;
 
 
 
@@ -29,5 +33,12 @@ public class ElementsPage extends BasePage {
 
     public void goToCheckBoxPage(){
         checkBoxLink.click();
+    }
+    public void goToWebTablePage(){
+        webTablesLink.click();
+    }
+
+    public void goToButtonPage(){
+        buttonsPageLink.click();
     }
 }

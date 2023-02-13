@@ -3,16 +3,14 @@ package com.example.demoqa.elements;
 import com.example.demoqa.BaseTest;
 import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.Test;
-import pageObject.elements.CheckBoxPage;
-import pageObject.elements.ElementsPage;
-import pageObject.elements.RadioButtonPage;
-import pageObject.elements.TextBoxPage;
+import pageObject.elements.*;
 
 
 public class ElementsPageTest extends BaseTest {
     private TextBoxPage textBoxPage;
     private CheckBoxPage checkBoxPage;
     private RadioButtonPage radioButtonPage;
+    private ButtonsPage buttonsPage;
 
 
 
@@ -55,7 +53,38 @@ public class ElementsPageTest extends BaseTest {
         elementsPage.goToRadioButtonPage();
         radioButtonPage.selectRadio("Yes");
         Assert.isTrue(radioButtonPage.checkResult("Yes"), "Values is not equals");
+    }
+
+    @Test
+    public void registrationFormTest(){
+        webTablesPage = new WebTablesPage(driver);
+        basePage.goToElementsPage();
+        elementsPage.goToWebTablePage();
+        webTablesPage.typeRegistrationForm("Evgeniy",
+                "Karabaev",
+                "evg@test.ru",
+                "29",
+                "100",
+                "QA");
+        Assert.isTrue(webTablesPage.test("Evgeniy",
+                "Karabaev",
+                "evg@test.ru",
+                "29",
+                "100",
+                "QA"), "Some elements is not equals");
+    }
+
+    @Test
+    public void buttonsTest() throws InterruptedException {
+        buttonsPage = new ButtonsPage(driver);
+        basePage.goToElementsPage();
+        elementsPage.goToButtonPage();
+        act.doubleClick(buttonsPage.getDoubleClickButton()).perform();
+        act.contextClick(buttonsPage.getRightClickButton()).perform();
+        buttonsPage.clickButton();
 
 
     }
+
+
 }
