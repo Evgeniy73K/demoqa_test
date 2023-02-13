@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 // https://demoqa.com/
 public class BasePage {
     @FindBy(xpath = "//h5[text()=\"Elements\"]")
-    public WebElement elementsLink;
+    private WebElement elementsLink;
 
     public void goToElementsPage(){
         elementsLink.click();

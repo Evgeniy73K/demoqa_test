@@ -10,7 +10,7 @@ public class ElementsPage extends BasePage{
     }
 
     @FindBy(xpath = "//span[text()=\"Text Box\"]")
-    public WebElement textBoxLink;
+    private WebElement textBoxLink;
 
     public void goToTextBoxPage(){
         textBoxLink.click();

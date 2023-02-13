@@ -5,6 +5,8 @@ import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.Test;
 
 public class TextBoxPageTest extends BaseTest {
+
+    //test data
     private String name = "Name";
     private String email = "test@mail.ru";
     private String currentAddress = "test1";

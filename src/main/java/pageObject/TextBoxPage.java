@@ -7,23 +7,23 @@ import org.openqa.selenium.support.FindBy;
 public class TextBoxPage extends BasePage{
 
     @FindBy(id = "userName")
-    public WebElement fullNameField;
+    private WebElement fullNameField;
     @FindBy(id = "userEmail")
-    public WebElement emailField;
+    private WebElement emailField;
     @FindBy(id = "currentAddress")
-    public WebElement currentAddressField;
+    private WebElement currentAddressField;
     @FindBy(id = "permanentAddress")
-    public WebElement permanentAddressField;
+    private WebElement permanentAddressField;
     @FindBy(xpath = "//p[@id=\"name\"]")
-    public WebElement nameResult;
+    private WebElement nameResult;
     @FindBy(id = "email")
-    public WebElement emailResult;
+    private WebElement emailResult;
     @FindBy(xpath = "//p[@id=\"currentAddress\"]")
-    public WebElement currentAddressResult;
+    private WebElement currentAddressResult;
     @FindBy(xpath = "//p[@id=\"permanentAddress\"]")
-    public WebElement permanentAddressResult;
+    private WebElement permanentAddressResult;
     @FindBy(id = "submit")
-    public WebElement submitButton;
+    private WebElement submitButton;
 
     public TextBoxPage typeValues(String name, String email, String currentAddress, String permanentAddress){
         fullNameField.sendKeys(name);
