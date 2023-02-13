@@ -2,17 +2,17 @@ package com.example.demoqa.elements;
 
 import com.example.demoqa.BaseTest;
 import dev.failsafe.internal.util.Assert;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pageObject.elements.CheckBoxPage;
 import pageObject.elements.ElementsPage;
+import pageObject.elements.RadioButtonPage;
 import pageObject.elements.TextBoxPage;
 
 
 public class ElementsPageTest extends BaseTest {
-    private ElementsPage elementsPage;
     private TextBoxPage textBoxPage;
     private CheckBoxPage checkBoxPage;
+    private RadioButtonPage radioButtonPage;
 
 
 
@@ -24,7 +24,6 @@ public class ElementsPageTest extends BaseTest {
 
     @Test
     public void validInputTextBoxTest() {
-        elementsPage = new ElementsPage(driver);
         textBoxPage = new TextBoxPage(driver);
         basePage.goToElementsPage();
         elementsPage.goToTextBoxPage();
@@ -41,11 +40,22 @@ public class ElementsPageTest extends BaseTest {
 
     @Test
     public void validInputCheckBoxTest() {
-        checkBoxPage = new CheckBoxPage(driver)
+        checkBoxPage = new CheckBoxPage(driver);
         basePage.goToElementsPage();
         elementsPage.goToCheckBoxPage();
         checkBoxPage.clickDropDown()
                 .selectDesktop();
         Assert.isTrue(checkBoxPage.checkResult(), "Values is not equals");
+    }
+
+    @Test
+    public void RadioButtonTest() {
+        radioButtonPage = new RadioButtonPage(driver);
+        basePage.goToElementsPage();
+        elementsPage.goToRadioButtonPage();
+        radioButtonPage.selectRadio("Yes");
+        Assert.isTrue(radioButtonPage.checkResult("Yes"), "Values is not equals");
+
+
     }
 }
