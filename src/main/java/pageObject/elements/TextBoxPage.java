@@ -1,10 +1,11 @@
-package pageObject;
+package pageObject.elements;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pageObject.BasePage;
 
-public class TextBoxPage extends BasePage{
+public class TextBoxPage extends BasePage {
 
     @FindBy(id = "userName")
     private WebElement fullNameField;
@@ -37,6 +38,7 @@ public class TextBoxPage extends BasePage{
         submitButton.click();
         return this;
     }
+
 
     public boolean checkValues(String name, String email, String currentAddress, String permanentAddress) {
         return nameResult.getText().equals("Name:" + name) &&

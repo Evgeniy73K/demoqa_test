@@ -2,9 +2,11 @@ package com.example.demoqa.elements;
 
 import com.example.demoqa.BaseTest;
 import dev.failsafe.internal.util.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TextBoxPageTest extends BaseTest {
+
+public class ElementsPageTest extends BaseTest {
 
     //test data
     private String name = "Name";
@@ -25,5 +27,14 @@ public class TextBoxPageTest extends BaseTest {
                 email,
                 currentAddress,
                 permanentAddress),"Values is not equals");
+    }
+
+    @Test
+    public void validInputCheckBoxTest() {
+        basePage.goToElementsPage();
+        elementsPage.goToCheckBoxPage();
+        checkBoxPage.clickDropDown()
+                .selectDesktop();
+        Assert.isTrue(checkBoxPage.checkResult(), "Values is not equals");
     }
 }
